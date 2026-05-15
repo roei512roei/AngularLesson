@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PriceCurrencyPipe } from '../../../shared/pipes/price-currency-pipe';
 
 interface Product {
   name: string;
@@ -12,7 +13,7 @@ interface Product {
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,PriceCurrencyPipe],
   templateUrl: './product-list.html',
   styleUrls: ['./product-list.css']
 })
