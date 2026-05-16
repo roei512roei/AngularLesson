@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PriceCurrencyPipe } from '../../../shared/pipes/price-currency-pipe';
+import { ProductService } from '../../../core/services/product';
 
-interface Product {
+export interface Product {
   name: string;
   price: number;
   category: string;
@@ -18,18 +19,17 @@ interface Product {
   styleUrls: ['./product-list.css']
 })
 export class ProductList {
+  products : Product[]=[];
 
-  products: Product[] = [
-    { name: "Chair", price: 100, category: "Decor",available: true },
-    { name: "Table", price: 400, category: "Decor",available: true },
-    { name: "TV", price: 1500, category: "Electronics",available: false },
-    { name: "Chandelier", price: 800, category: "Decor",available: true },
-    { name: "Washing Machine", price: 1000, category: "Electronics",available: false },
-  ];
+  constructor(private productService:ProductService){
+    this.products=this.productService.getProducts();
+  }
 
   hideProduct(prod: Product) {
     prod.available=false;
   }
-
+  getProducts(){
+    return this.productService;
+  }
 }
 
