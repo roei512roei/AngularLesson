@@ -5,7 +5,7 @@ import { PriceCurrencyPipe } from './shared/pipes/price-currency-pipe';
 
 @Component({
   selector: 'app-root',
-  imports: [ProductList,PriceCurrencyPipe],
+  imports: [RouterOutlet, ProductList, PriceCurrencyPipe],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
